@@ -96,7 +96,7 @@ button.sonido:active{padding:10px 10px 11px;box-shadow:inset 0 -2px 0 #24323f}
       <div class="rotulo">BIDOIAK</div>
       <div class="vidas">
         <canvas id="hudCara" width="8" height="8" hidden></canvas>
-        <div class="num" id="num">14</div>
+        <div class="num" id="num">10</div>
         <div class="pips" id="pips"></div>
       </div>
     </div>
@@ -126,7 +126,7 @@ button.sonido:active{padding:10px 10px 11px;box-shadow:inset 0 -2px 0 #24323f}
         <dt>ZURIUNEA</dt><dd>Salto egin (edo saguaren gurpilaren klika)</dd>
         <dt>P · M</dt><dd>Pausa · Soinua bai/ez</dd>
       </dl>
-      <p class="regla"><b>14 bidoirekin</b> hasten zara. Kolpe bakoitzak bat kentzen dizu. <b>7</b>rekin geratzen bazara, akabo. Bideko bidoiek bat itzultzen dizute, eta arrapalek metro gehigarriak ematen dituzte.</p>
+      <p class="regla"><b>10 bidoirekin</b> hasten zara. Kolpe bakoitzak bat kentzen dizu. <b>Bidoirik gabe</b> geratzen bazara, akabo. Bideko bidoiek bat itzultzen dizute, eta arrapalek metro gehigarriak ematen dituzte.</p>
       <button id="btnJugar" type="button">GOAZEN!</button>
     </div>
   </div>
@@ -134,7 +134,7 @@ button.sonido:active{padding:10px 10px 11px;box-shadow:inset 0 -2px 0 #24323f}
   <div class="velo" id="fin" hidden>
     <div class="panel">
       <h1>URIK <span>GABE!</span></h1>
-      <p class="lema">7 bidoirekin geratu zara. Chis Chisek ez dute amore ematen!</p>
+      <p class="lema">Bidoirik gabe geratu zara. Chis Chisek ez dute amore ematen!</p>
       <div class="grande"><span id="finMetros">0</span> m</div>
       <div class="record" id="finRecord"></div>
       <div class="botones">
@@ -161,7 +161,7 @@ var $ = function(id){ return document.getElementById(id); };
 var cont = $("juego"), lienzo = $("lienzo");
 if (!window.THREE){ $("inicio").querySelector(".lema").textContent = "Ezin izan da 3D motorra kargatu. Kargatu berriro orria."; return; }
 
-var MAX = 14, MIN = 7;
+var MAX = 10, MIN = 0;
 var CIELO = 0x8fd0ee;
 var calma = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 

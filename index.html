@@ -95,7 +95,7 @@ button.sonido:active{padding:10px 10px 11px;box-shadow:inset 0 -2px 0 #24323f}
     <div class="caja">
       <div class="rotulo">BIDOIAK</div>
       <div class="vidas">
-        <canvas id="hudCara" width="8" height="8"></canvas>
+        <canvas id="hudCara" width="8" height="8" hidden></canvas>
         <div class="num" id="num">14</div>
         <div class="pips" id="pips"></div>
       </div>
@@ -115,8 +115,8 @@ button.sonido:active{padding:10px 10px 11px;box-shadow:inset 0 -2px 0 #24323f}
       <h1>BIDOI <span>MENDIA</span></h1>
       <p class="edicion">CHIS CHIS</p>
       <p class="lema">Jaitsi mendia urik gabe geratu gabe.</p>
-      <p class="elige">AUKERATU ZURE CHIS CHIS</p>
-      <div class="caras" id="caras"></div>
+      <p class="elige" hidden>AUKERATU ZURE CHIS CHIS</p>
+      <div class="caras" id="caras" hidden></div>
       <p class="elige">AUKERATU IBILGAILUA</p>
       <div class="caras" id="vehiculos"></div>
       <p class="ficha" id="ficha"></p>
@@ -139,7 +139,7 @@ button.sonido:active{padding:10px 10px 11px;box-shadow:inset 0 -2px 0 #24323f}
       <div class="record" id="finRecord"></div>
       <div class="botones">
         <button id="btnOtra" type="button">BESTE JAITSIERA BAT</button>
-        <button id="btnCambiar" type="button" class="sec">ALDATU AUKERA</button>
+        <button id="btnCambiar" type="button" class="sec">ALDATU IBILGAILUA</button>
       </div>
     </div>
   </div>
@@ -416,6 +416,7 @@ function pintarCara(cv, c){
 }
 var elegido = 0;
 try { elegido = Math.max(0, Math.min(CHIS.length - 1, parseInt(localStorage.getItem("monteBidonChis2"), 10) || 0)); } catch(e){}
+elegido = 0; /* pilotu bakarra: aurpegi-hautaketa kenduta */
 function elegir(n){
   elegido = n; var c = CHIS[n];
   M.piel.color.set(c.piel); M.pelo.color.set(c.pelo); M.maillot.color.set(c.maillot);

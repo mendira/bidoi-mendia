@@ -599,6 +599,9 @@ function reiniciarMundo(){
   for (var i = 0; i < FILAS; i++) sortearFila(filas[i], 0);
   ambiente(1);
 }
+function contar(path, title){
+  try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({path:path, title:title, event:true}); } catch(e){}
+}
 function empezar(){
   activarAudio(); SON.inicio();
   try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({path:"partida-" + V.nombre.toLowerCase(), title:"Partida: " + V.nombre, event:true}); } catch(e){}
@@ -612,6 +615,9 @@ function terminar(){
   E.modo = "fin";
   var m = Math.floor(E.dist + E.extra);
   $("finMetros").textContent = m;
+  var tramo = m < 250 ? "0000-0250" : m < 500 ? "0250-0500" : m < 1000 ? "0500-1000" : m < 2000 ? "1000-2000" : "2000+";
+  contar("amaiera-" + tramo, "Amaiera: " + tramo + " m");
+  if (m > record) contar("errekorra-" + ("00000" + m).slice(-5) + "m", "Errekor berria: " + m + " m (" + V.nombre + ")");
   if (m > record){ record = m; try { localStorage.setItem("monteBidonRecord", String(m)); } catch(e){} $("finRecord").textContent = "ERREKOR BERRIA!"; SON.record(); }
   else { $("finRecord").textContent = "ERREKORRA: " + record + " m"; SON.fin(); }
   $("fin").hidden = false; $("btnOtra").focus();

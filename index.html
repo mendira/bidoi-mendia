@@ -242,6 +242,27 @@ function pico(x, z, base, niveles){
 }
 pico(-95, -230, 120, 7); pico(20, -260, 170, 8); pico(120, -225, 110, 6); pico(-190, -250, 100, 6); pico(210, -260, 120, 6);
 
+/* ---------- errotulua mendian: CHIS CHIS ---------- */
+(function(){
+  var F = {
+    C:[".###.","#...#","#....","#....","#....","#...#",".###."],
+    H:["#...#","#...#","#...#","#####","#...#","#...#","#...#"],
+    I:["#####","..#..","..#..","..#..","..#..","..#..","#####"],
+    S:[".####","#....","#....",".###.","....#","....#","####."]
+  };
+  var txt = "CHIS CHIS", p = 2.6, cols = txt.length * 6 - 1, x0 = 10 - cols * p / 2, yTop = 34, z = -170;
+  var mr = liso(0xffd05e, {fog:false}), ms = liso(0x16202b, {fog:false});
+  for (var ci = 0; ci < txt.length; ci++){
+    var g = F[txt.charAt(ci)]; if (!g) continue;
+    for (var r = 0; r < 7; r++) for (var c = 0; c < 5; c++){
+      if (g[r].charAt(c) !== "#") continue;
+      var x = x0 + (ci * 6 + c + 0.5) * p, y = yTop - (r + 0.5) * p;
+      caja(ms, p, p, p, x + p * 0.4, y - p * 0.4, z - p, scene);
+      caja(mr, p, p, p, x, y, z, scene);
+    }
+  }
+})();
+
 /* ---------- mundo inclinado (cuesta abajo) ---------- */
 var mundo = new THREE.Group(); mundo.rotation.x = -0.16; scene.add(mundo);
 var ANCHO = 4.4, FILAS = 70, PASO = 2, LARGO = FILAS * PASO;

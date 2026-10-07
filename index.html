@@ -601,6 +601,7 @@ function reiniciarMundo(){
 }
 function empezar(){
   activarAudio(); SON.inicio();
+  try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({path:"partida-" + V.nombre.toLowerCase(), title:"Partida: " + V.nombre, event:true}); } catch(e){}
   limpiar(); reiniciarMundo();
   E.modo = "jugando"; E.vidas = MAX; E.dist = 0; E.extra = 0; E.x = 0; E.vx = 0; E.y = 0; E.vy = 0; E.vel = 24; E.freno = 1; E.inmune = 0; E.sig = 45; E.sinBidon = 0; E.golpe = 0;
   $("inicio").hidden = true; $("fin").hidden = true; $("pausa").hidden = true; $("hud").hidden = false;
